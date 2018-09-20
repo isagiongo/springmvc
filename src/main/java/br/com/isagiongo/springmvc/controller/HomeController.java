@@ -1,4 +1,4 @@
-package br.com.isagiongo.springmvc.web.controller;
+package br.com.isagiongo.springmvc.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

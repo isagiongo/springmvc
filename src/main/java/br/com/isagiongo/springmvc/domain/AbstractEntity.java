@@ -49,7 +49,4 @@ public abstract class AbstractEntity <ID extends Serializable> implements Serial
 	public String toString() {
 		return "id=" + id;
 	}
-	
-	
-	
 }

@@ -77,5 +77,4 @@ public class Funcionario extends AbstractEntity<Long>{
 	public void setCargo(Cargo cargo) {
 		this.cargo = cargo;
 	}
-	
 }
