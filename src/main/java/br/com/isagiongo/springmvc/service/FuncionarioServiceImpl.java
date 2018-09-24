@@ -1,5 +1,7 @@
 package br.com.isagiongo.springmvc.service;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,5 +44,31 @@ public class FuncionarioServiceImpl implements FuncionarioService {
 	public List<Funcionario> buscarTodos() {
 		return funcionarioDao.findAll();
 	}
+
+	@Override
+	@Transactional(readOnly = true)
+	public List<Funcionario> buscarPorNome(String nome) {
+		return funcionarioDao.findByNome(nome);
+	}
+	
+	@Override
+	@Transactional(readOnly = true)
+	public List<Funcionario> buscarPorCargo(Long id) {
+		return funcionarioDao.findByCargoId(id);
+	}
+
+	@Override
+	@Transactional(readOnly = true)
+    public List<Funcionario> buscarPorDatas(LocalDate entrada, LocalDate saida) {
+	    if (entrada != null && saida != null) {	    	
+            return funcionarioDao.findByDataEntradaDataSaida(entrada, saida);
+        } else if (entrada != null) {        	
+	        return funcionarioDao.findByDataEntrada(entrada);
+        } else if (saida != null) {        	
+	        return funcionarioDao.findByDataSaida(saida);
+        } else {
+        	return new ArrayList<>();
+        }
+    }
 
 }
