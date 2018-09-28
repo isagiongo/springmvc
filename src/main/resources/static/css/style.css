@@ -30,6 +30,8 @@ body {
 .container {
 	width: 100%;
 	padding-top: 20px;
+	float: left;
+	margin-left: 20px;
 }
 
 /*
